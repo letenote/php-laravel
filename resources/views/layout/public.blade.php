@@ -27,11 +27,26 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('custom-css')}}/app.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{asset('adminlte-v3')}}/plugins/toastr/toastr.min.css">
 </head>
 <body class="antialiased">
     @include('components.public.navbar')
+    <!-- jQuery -->
+    <script src="{{asset('adminlte-v3')}}/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{asset('adminlte-v3')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="{{asset('adminlte-v3')}}/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="{{asset('adminlte-v3')}}/plugins/toastr/toastr.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="{{asset('adminlte-v3')}}/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{{asset('adminlte-v3')}}/dist/js/demo.js"></script>
     <main class="py-4">
         @yield('content')
     </main>
 </body>
+
 </html>

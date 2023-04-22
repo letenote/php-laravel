@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $roles = [
+        $users = [
             [
                 'name' => 'reza aditya',
                 'email' => 'rezaAditya@gmail.com',
@@ -28,8 +28,8 @@ class UserSeeder extends Seeder
             ]
         ];
 
-        foreach ($roles as $role){
-            DB::table('users')->insert($role);
+        foreach ($users as $user){
+            DB::table('users')->insert($user);
         }
     }
 }
