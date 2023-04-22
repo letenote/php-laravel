@@ -28,20 +28,44 @@
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-bell"></i>
-                <span class="badge badge-success navbar-badge">6</span>
+                @if(isset($newMailBoxLength))
+                    @if(isset($newReportLength))
+                        <span class="badge badge-warning navbar-badge">
+                            {{$newMailBoxLength+$newReportLength}}
+                        </span>
+                    @endif
+                @endif
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                @if(isset($newMailBoxLength))
+                    @if(isset($newReportLength))
+                    <span class="dropdown-item dropdown-header">
+                        {{$newMailBoxLength+$newReportLength}} Notifications
+                    </span>
+                    @endif
+                @endif
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-envelope mr-2"></i> 4 new mail
-                    <span class="float-right text-muted text-sm">3 mins</span>
-                </a>
+                    @if(isset($newMailBoxLength))
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i> {{$newMailBoxLength}} new mail
+                        @if(isset($lastMailIn))
+                            <span class="float-right text-muted text-sm">
+                                {{$lastMailIn}}
+                            </span>
+                        @endif
+                    </a>
+                    @endif
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-file mr-2"></i> 3 new reports
-                    <span class="float-right text-muted text-sm">2 days</span>
-                </a>
+                    @if(isset($newReportLength))
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-file mr-2"></i> {{$newReportLength}} new reports
+                        @if(isset($lastReportIn))
+                            <span class="float-right text-muted text-sm">
+                                {{$lastReportIn}}
+                            </span>
+                        @endif
+                    </a>
+                    @endif
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>

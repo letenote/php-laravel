@@ -18,11 +18,21 @@ class StaffController extends Controller
         $this->userService = $userService;
     }
 
-    public function home(): Response
+    public function home(Request $request): Response
     {
+        $getEmail = $request->session()->get('user');
+        $getFullName = $this->userService->getFullNameByEmail($getEmail);
+
         return response()
             ->view('staff', [
-                "title" => "Staff Page"
+                "title" => "Staff Dashboard",
+                "contentHeader" => "Dashboard",
+                "fullName" => $getFullName,
+                "newMailBoxLength" => 7,
+                "lastMailIn" => "38 mins",
+                "newReportLength" => 2,
+                "lastReportIn" => "1 days",
+                "avatar" => "user7-128x128.jpg"
             ]);
     }
 }

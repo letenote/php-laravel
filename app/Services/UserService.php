@@ -9,4 +9,5 @@ interface UserService
     function register(string $name, string $email, string $password): bool;
     function getRedirectByEmail(string $email): string;
     function roleCheckByEmail(string $email, string $role): bool;
+    function getFullNameByEmail(string $email): string;
 }

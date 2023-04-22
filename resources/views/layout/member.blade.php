@@ -45,7 +45,22 @@
 <script src="{{asset('adminlte-v3')}}/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('adminlte-v3')}}/dist/js/demo.js"></script>
-<div class="content-wrapper p-4">
+
+
+<div class="content-wrapper">
+    @if(isset($contentHeader))
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">{{$contentHeader}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content-header -->
+    @endif
     @yield('content')
 </div>
 </body>

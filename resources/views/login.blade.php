@@ -28,7 +28,7 @@
                         <div class="col-8">
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember" value="true">
-                                <label for="remember">
+                                <label for="remember" class="font-weight-normal">
                                     Remember Me
                                 </label>
                             </div>

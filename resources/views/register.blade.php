@@ -44,7 +44,7 @@
                         <div class="col-8">
                             <div class="icheck-primary">
                                 <input type="checkbox" id="agreeTerms" name="terms" value="agree" required>
-                                <label for="agreeTerms">
+                                <label for="agreeTerms" class="font-weight-normal">
                                     I agree to the <a href="#">terms</a>
                                 </label>
                             </div>

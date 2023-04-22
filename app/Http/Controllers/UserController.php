@@ -6,7 +6,6 @@ use App\Services\UserService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use PhpParser\Node\Stmt\Echo_;
 
 class UserController extends Controller
 {

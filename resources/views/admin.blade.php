@@ -1,7 +1,9 @@
 @extends('layout.member')
 @section('title', $title)
 @section('content')
-    <div>
-        admin
-    </div>
+    <section class="content">
+        <div class="container-fluid">
+            admin
+        </div>
+    </section>
 @endsection

@@ -59,4 +59,14 @@ class UserServiceImpl implements UserService
 
         return $getRole[0]->name == $role;
     }
+
+    function getFullNameByEmail(string $email): string
+    {
+        $getUser = DB::table('users')
+            ->where('users.email', '=', $email)
+            ->select('users.name')
+            ->get();
+
+        return ucwords($getUser[0]->name);
+    }
 }
