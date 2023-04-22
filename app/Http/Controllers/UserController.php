@@ -60,4 +60,55 @@ class UserController extends Controller
         $request->session()->forget("user");
         return redirect('/');
     }
+
+    public function register(): Response
+    {
+        return response()
+            ->view('register', [
+                "title" => "Register Page"
+            ]);
+    }
+
+    public function doRegister(Request $request): Response | RedirectResponse
+    {
+        $getFullName = $request->input('full_name');
+        $getEmail = $request->input('email');
+        $getPassword = $request->input('password');
+        $getRetypePassword = $request->input('retype_password');
+
+        // validate input
+        if(empty($getFullName) || empty($getEmail) || empty($getPassword) || empty($getRetypePassword)){
+            return response()
+                ->view('register', [
+                    "title" => "Register Page",
+                    "error" => "All form is required"
+                ]);
+        };
+        // make sure $getPassword === $getRetypePassword
+        if($getPassword !== $getRetypePassword){
+            return response()
+                ->view('register', [
+                    "title" => "Register Page",
+                    "error" => "Please make sure password same with retype password"
+                ]);
+        };
+
+        // check exist email in db
+        if($this->userService->emailAlreadyExist($getEmail)){
+            return response()
+                ->view('register', [
+                    "title" => "Register Page",
+                    "error" => "Email Already exist, please input another email !!"
+                ]);
+        }
+
+        // insert new user
+        if($this->userService->register($getFullName, $getEmail, $getPassword)){
+            return response()
+                ->view('register', [
+                    "title" => "Register Page",
+                    "success" => "User is created."
+                ]);
+        }
+    }
 }
