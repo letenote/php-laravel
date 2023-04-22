@@ -1,5 +1,5 @@
 @extends('layout.member')
-@section('title', 'Staff Page')
+@section('title', $title)
 @section('content')
     <div>
         admin

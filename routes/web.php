@@ -25,10 +25,14 @@ Route::controller(\App\Http\Controllers\UserController::class) -> group(function
     Route::post('/logout', 'doLogout')->middleware(\App\Http\Middleware\UserMiddleware::class);
 });
 
-Route::get('/staff', function () {
-    return view('staff');
+Route::controller(\App\Http\Controllers\StaffController::class) -> group(function (){
+    Route::get('/staff', 'home')
+        ->middleware(\App\Http\Middleware\UserMiddleware::class)
+        ->middleware(\App\Http\Middleware\RoleStaffMiddleware::class);
 });
 
-Route::get('/administrator', function () {
-    return view('admin');
+Route::controller(\App\Http\Controllers\AdminController::class) -> group(function (){
+    Route::get('/administrator', 'home')
+        ->middleware(\App\Http\Middleware\UserMiddleware::class)
+        ->middleware(\App\Http\Middleware\RoleAdminMiddleware::class);
 });

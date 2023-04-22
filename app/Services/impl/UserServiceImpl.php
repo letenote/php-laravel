@@ -48,4 +48,15 @@ class UserServiceImpl implements UserService
 
         return $getRole[0]->redirect_to;
     }
+
+    function roleCheckByEmail(string $email, string $role): bool
+    {
+        $getRole = DB::table('users')
+            ->join('roles', 'roles.id', '=', 'users.role_id')
+            ->where('users.email', '=', $email)
+            ->select('roles.name')
+            ->get();
+
+        return $getRole[0]->name == $role;
+    }
 }
