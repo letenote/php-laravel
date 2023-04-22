@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::controller(\App\Http\Controllers\UserController::class) -> group(function (){
-    Route::get('/login', 'login');
-    Route::post('/login', 'doLogin');
-    Route::post('/logout', 'doLogout');
+    Route::get('/login', 'login')->middleware(\App\Http\Middleware\GuestMiddleware::class);
+    Route::post('/login', 'doLogin')->middleware(\App\Http\Middleware\GuestMiddleware::class);;
+    Route::post('/logout', 'doLogout')->middleware(\App\Http\Middleware\UserMiddleware::class);
 });
