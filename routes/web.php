@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return redirect('/login');
 });
 
 Route::controller(\App\Http\Controllers\UserController::class) -> group(function (){
@@ -23,4 +23,12 @@ Route::controller(\App\Http\Controllers\UserController::class) -> group(function
     Route::get('/register', 'register')->middleware(\App\Http\Middleware\GuestMiddleware::class);
     Route::post('/register', 'doRegister')->middleware(\App\Http\Middleware\GuestMiddleware::class);
     Route::post('/logout', 'doLogout')->middleware(\App\Http\Middleware\UserMiddleware::class);
+});
+
+Route::get('/staff', function () {
+    return view('staff');
+});
+
+Route::get('/administrator', function () {
+    return view('admin');
 });

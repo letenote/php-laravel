@@ -45,7 +45,8 @@ class UserController extends Controller
         // check user in db
         if($this->userService->login($getEmail,$getPassword)){
             $request->session()->put("user", $getEmail);
-            return redirect('/');
+            $getRedirect = $this->userService->getRedirectByEmail($getEmail);
+            return redirect($getRedirect);
         }else{
             return response()
                 ->view('login', [
@@ -84,6 +85,7 @@ class UserController extends Controller
                     "error" => "All form is required"
                 ]);
         };
+
         // make sure $getPassword === $getRetypePassword
         if($getPassword !== $getRetypePassword){
             return response()

@@ -37,4 +37,15 @@ class UserServiceImpl implements UserService
 
         return DB::table('users')->insert($user);
     }
+
+    function getRedirectByEmail(string $email): string
+    {
+        $getRole = DB::table('users')
+            ->join('roles', 'roles.id', '=', 'users.role_id')
+            ->where('users.email', '=', $email)
+            ->select('roles.redirect_to')
+            ->get();
+
+        return $getRole[0]->redirect_to;
+    }
 }

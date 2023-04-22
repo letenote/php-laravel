@@ -1,7 +1,7 @@
 @extends('layout.public')
 @section('title', $title)
 @section('content')
-<div class="custom-login-page">
+<div class="login-page">
     <div class="login-box">
         <div class="card">
             <div class="card-body login-card-body">

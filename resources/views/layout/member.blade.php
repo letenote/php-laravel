@@ -31,21 +31,22 @@
     <link rel="stylesheet" href="{{asset('adminlte-v3')}}/plugins/toastr/toastr.min.css">
 </head>
 <body class="antialiased">
-{{--@include('components.public.navbar')--}}
-    <!-- jQuery -->
-    <script src="{{asset('adminlte-v3')}}/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{{asset('adminlte-v3')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- SweetAlert2 -->
-    <script src="{{asset('adminlte-v3')}}/plugins/sweetalert2/sweetalert2.min.js"></script>
-    <!-- Toastr -->
-    <script src="{{asset('adminlte-v3')}}/plugins/toastr/toastr.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="{{asset('adminlte-v3')}}/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{asset('adminlte-v3')}}/dist/js/demo.js"></script>
-    <main>
-        @yield('content')
-    </main>
+@include('components.dashboard.navbar')
+@include('components.dashboard.sidebar')
+<!-- jQuery -->
+<script src="{{asset('adminlte-v3')}}/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="{{asset('adminlte-v3')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="{{asset('adminlte-v3')}}/plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- Toastr -->
+<script src="{{asset('adminlte-v3')}}/plugins/toastr/toastr.min.js"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('adminlte-v3')}}/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('adminlte-v3')}}/dist/js/demo.js"></script>
+<div class="content-wrapper p-4">
+    @yield('content')
+</div>
 </body>
 </html>

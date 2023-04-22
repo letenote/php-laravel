@@ -24,8 +24,8 @@ class RoleSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'name' => 'user',
-                'redirect_to' => '/',
+                'name' => 'staff',
+                'redirect_to' => '/staff',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]
