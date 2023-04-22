@@ -1,52 +1,64 @@
 @extends('layout.public')
 @section('title', 'Register')
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                <div class="card border-0 shadow rounded-3 my-5">
-                    <h5 class="card-title text-center mt-5 fw-light fs-5">REGISTER</h5>
-                    <div class="card-body p-4 p-sm-5">
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleInputFullName">Full Name</label>
-                                <input type="text" class="form-control" id="exampleInputFullName" placeholder="Enter full name">
+<div class="custom-login-page">
+    <div class="register-box">
+        <div class="card">
+            <div class="card-body register-card-body">
+                <p class="login-box-msg">Register a new membership</p>
+                <form action="../../index.html" method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Full name">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter email">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputRepeatPassword">Repeat Password</label>
-                                <input type="password" class="form-control" id="exampleInputRepeatPassword" placeholder="Repeat Password">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Retype password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
                             </div>
-
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                                <label class="form-check-label" for="rememberPasswordCheck">
-                                    I agree all statements in Terms of service
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                                <label for="agreeTerms">
+                                    I agree to the <a href="#">terms</a>
                                 </label>
                             </div>
-                            <div class="d-grid mt-5">
-                                <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">
-                                    Register
-                                </button>
-                            </div>
-                            <hr class="my-4">
-                            <div class="text-center mt-2 fw-light">
-                                Have already an account? ?
-                                <a href="{{ url('login') }}">
-                                    Login here
-                                </a>
-                            </div>
-                        </form>
+                        </div>
                     </div>
+                </form>
+                <div class="mt-4 text-center mb-3">
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
                 </div>
+                <p class="mb-0 mt-3">
+                    Have already an account ?
+                    <a href="{{ url('login') }}" class="text-center">Login here</a>
+                </p>
             </div>
         </div>
     </div>
+</div>
 @endsection

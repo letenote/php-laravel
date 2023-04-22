@@ -9,3 +9,15 @@
     padding: 0.75rem 1rem;
     width: 100%;
 }
+
+.custom-login-page {
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 50vh;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
