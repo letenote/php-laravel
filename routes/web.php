@@ -32,6 +32,9 @@ Route::controller(\App\Http\Controllers\StaffController::class) -> group(functio
     Route::get('/staff/mailbox', 'mailbox')
         ->middleware(\App\Http\Middleware\UserMiddleware::class)
         ->middleware(\App\Http\Middleware\RoleStaffMiddleware::class);
+    Route::get('/staff/project', 'project')
+        ->middleware(\App\Http\Middleware\UserMiddleware::class)
+        ->middleware(\App\Http\Middleware\RoleStaffMiddleware::class);
 });
 
 Route::controller(\App\Http\Controllers\AdminController::class) -> group(function (){
@@ -39,6 +42,12 @@ Route::controller(\App\Http\Controllers\AdminController::class) -> group(functio
         ->middleware(\App\Http\Middleware\UserMiddleware::class)
         ->middleware(\App\Http\Middleware\RoleAdminMiddleware::class);
     Route::get('/administrator/mailbox', 'mailbox')
+        ->middleware(\App\Http\Middleware\UserMiddleware::class)
+        ->middleware(\App\Http\Middleware\RoleAdminMiddleware::class);
+    Route::get('/administrator/project', 'project')
+        ->middleware(\App\Http\Middleware\UserMiddleware::class)
+        ->middleware(\App\Http\Middleware\RoleAdminMiddleware::class);
+    Route::get('/administrator/project/add', 'projectAdd')
         ->middleware(\App\Http\Middleware\UserMiddleware::class)
         ->middleware(\App\Http\Middleware\RoleAdminMiddleware::class);
 });

@@ -57,41 +57,44 @@
                     @endif
                 </li>
 
+                @if(isset($roleIsStaff))
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>
-                            Project in staff
-
-                        </p>
-                    </a>
+                    @if(isset($redirect_to))
+                        <a href="{{$redirect_to}}/project" class="nav-link">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>Project</p>
+                        </a>
+                    @endif
                 </li>
+                @endif
 
+                @if(isset($roleIsAdmin))
                 <li class="nav-item has-treeview menu-open">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>
-                            Project in admin
+                            Project
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+                        @if(isset($redirect_to))
                         <li class="nav-item">
-                            <a href="pages/examples/projects.html" class="nav-link">
+                            <a href="{{$redirect_to}}/project" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Projects</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/examples/project-add.html" class="nav-link">
+                            <a href="{{$redirect_to}}/project/add" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Project Add</p>
                             </a>
                         </li>
+                        @endif
                     </ul>
                 </li>
-
-
+                @endif
             </ul>
         </nav>
     </div>

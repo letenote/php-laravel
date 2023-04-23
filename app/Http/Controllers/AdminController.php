@@ -23,6 +23,7 @@ class AdminController extends Controller
         $getEmail = $request->session()->get('user');
         $getFullName = $this->userService->getFullNameByEmail($getEmail);
         $getRedirect = $this->userService->getRedirectByEmail($getEmail);
+        $getRole = $this->userService->getRoleNameIsStaff();
 
         return response()
             ->view('admin', [
@@ -34,7 +35,8 @@ class AdminController extends Controller
                 "newReportLength" => 8,
                 "lastReportIn" => "12 days",
                 "avatar" => "user1-128x128.jpg",
-                "redirect_to" => $getRedirect
+                "redirect_to" => $getRedirect,
+                "roleIsAdmin" => $getRole
             ]);
     }
 
@@ -43,6 +45,7 @@ class AdminController extends Controller
         $getEmail = $request->session()->get('user');
         $getFullName = $this->userService->getFullNameByEmail($getEmail);
         $getRedirect = $this->userService->getRedirectByEmail($getEmail);
+        $getRole = $this->userService->getRoleNameIsStaff();
 
         return response()
             ->view('components.dashboard.mailbox', [
@@ -54,7 +57,52 @@ class AdminController extends Controller
                 "newReportLength" => 8,
                 "lastReportIn" => "1 days",
                 "avatar" => "user1-128x128.jpg",
-                "redirect_to" => $getRedirect
+                "redirect_to" => $getRedirect,
+                "roleIsAdmin" => $getRole
+            ]);
+    }
+
+    public function project(Request $request): Response
+    {
+        $getEmail = $request->session()->get('user');
+        $getFullName = $this->userService->getFullNameByEmail($getEmail);
+        $getRedirect = $this->userService->getRedirectByEmail($getEmail);
+        $getRole = $this->userService->getRoleNameIsStaff();
+
+        return response()
+            ->view('components.dashboard.project', [
+                "title" => "Staff Project",
+                "contentHeader" => "Project",
+                "fullName" => $getFullName,
+                "newMailBoxLength" => 30,
+                "lastMailIn" => "38 mins",
+                "newReportLength" => 8,
+                "lastReportIn" => "1 days",
+                "avatar" => "user1-128x128.jpg",
+                "redirect_to" => $getRedirect,
+                "roleIsAdmin" => $getRole
+            ]);
+    }
+
+    public function projectAdd(Request $request): Response
+    {
+        $getEmail = $request->session()->get('user');
+        $getFullName = $this->userService->getFullNameByEmail($getEmail);
+        $getRedirect = $this->userService->getRedirectByEmail($getEmail);
+        $getRole = $this->userService->getRoleNameIsStaff();
+
+        return response()
+            ->view('components.dashboard.project-add', [
+                "title" => "Staff Add New Project",
+                "contentHeader" => "Add New Project",
+                "fullName" => $getFullName,
+                "newMailBoxLength" => 30,
+                "lastMailIn" => "38 mins",
+                "newReportLength" => 8,
+                "lastReportIn" => "1 days",
+                "avatar" => "user1-128x128.jpg",
+                "redirect_to" => $getRedirect,
+                "roleIsAdmin" => $getRole
             ]);
     }
 }
