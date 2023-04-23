@@ -32,17 +32,20 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link active">
+                    @if(isset($redirect_to))
+                    <a href="{{$redirect_to}}" class="nav-link active">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Dashboard
                             <span class="right badge badge-danger">New</span>
                         </p>
                     </a>
+                    @endif
                 </li>
 
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    @if(isset($redirect_to))
+                    <a href="{{$redirect_to}}/mailbox" class="nav-link">
                         <i class="nav-icon far fa-envelope"></i>
                         <p>
                             Mailbox
@@ -51,6 +54,7 @@
                             @endif
                         </p>
                     </a>
+                    @endif
                 </li>
 
                 <li class="nav-item">

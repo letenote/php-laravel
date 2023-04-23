@@ -28,7 +28,7 @@ class RoleStaffMiddleware
     public function handle(Request $request, Closure $next)
     {
         $getEmail = $request->session()->get('user');
-        $ROLE_NAME = "staff";
+        $ROLE_NAME = $this->userService->getRoleNameIsStaff();
         if($this->userService->roleCheckByEmail($getEmail, $ROLE_NAME)){
             return $next($request);
         }else {

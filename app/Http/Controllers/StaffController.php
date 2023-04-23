@@ -22,6 +22,7 @@ class StaffController extends Controller
     {
         $getEmail = $request->session()->get('user');
         $getFullName = $this->userService->getFullNameByEmail($getEmail);
+        $getRedirect = $this->userService->getRedirectByEmail($getEmail);
 
         return response()
             ->view('staff', [
@@ -32,7 +33,28 @@ class StaffController extends Controller
                 "lastMailIn" => "38 mins",
                 "newReportLength" => 2,
                 "lastReportIn" => "1 days",
-                "avatar" => "user7-128x128.jpg"
+                "avatar" => "user7-128x128.jpg",
+                "redirect_to" => $getRedirect
+            ]);
+    }
+
+    public function mailbox(Request $request): Response
+    {
+        $getEmail = $request->session()->get('user');
+        $getFullName = $this->userService->getFullNameByEmail($getEmail);
+        $getRedirect = $this->userService->getRedirectByEmail($getEmail);
+
+        return response()
+            ->view('components.dashboard.mailbox', [
+                "title" => "Staff Mailbox",
+                "contentHeader" => "Mailbox",
+                "fullName" => $getFullName,
+                "newMailBoxLength" => 7,
+                "lastMailIn" => "38 mins",
+                "newReportLength" => 2,
+                "lastReportIn" => "1 days",
+                "avatar" => "user7-128x128.jpg",
+                "redirect_to" => $getRedirect
             ]);
     }
 }

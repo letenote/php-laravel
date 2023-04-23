@@ -10,4 +10,6 @@ interface UserService
     function getRedirectByEmail(string $email): string;
     function roleCheckByEmail(string $email, string $role): bool;
     function getFullNameByEmail(string $email): string;
+    function getRoleNameIsAdmin(): string;
+    function getRoleNameIsStaff(): string;
 }

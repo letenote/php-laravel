@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class UserServiceImpl implements UserService
 {
+    public string $IS_ADMIN = "admin";
+    public string $IS_STAFF = "staff";
     public function login(string $email, string $password): bool
     {
         return DB::table('users')
@@ -68,5 +70,15 @@ class UserServiceImpl implements UserService
             ->get();
 
         return ucwords($getUser[0]->name);
+    }
+
+    function getRoleNameIsAdmin(): string
+    {
+        return $this->IS_ADMIN;
+    }
+
+    function getRoleNameIsStaff(): string
+    {
+        return $this->IS_STAFF;
     }
 }

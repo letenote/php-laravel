@@ -28,7 +28,7 @@ class RoleAdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         $getEmail = $request->session()->get('user');
-        $ROLE_NAME = "admin";
+        $ROLE_NAME = $this->userService->getRoleNameIsAdmin();
         if($this->userService->roleCheckByEmail($getEmail, $ROLE_NAME)){
             return $next($request);
         }else {
