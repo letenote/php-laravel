@@ -81,7 +81,7 @@
                     <input type="submit" value="Create new Porject" class="btn btn-success float-right">
                 </div>
             </div>
-            
+
         </div>
     </section>
 @endsection

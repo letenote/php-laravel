@@ -55,7 +55,7 @@
                         <div class="inner">
                             <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                            <p>CPU Traffic</p>
+                            <p>CPU Server</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-gear-a"></i>

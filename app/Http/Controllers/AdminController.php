@@ -49,7 +49,7 @@ class AdminController extends Controller
 
         return response()
             ->view('components.dashboard.mailbox', [
-                "title" => "Staff Mailbox",
+                "title" => "Administrator Mailbox",
                 "contentHeader" => "Mailbox",
                 "fullName" => $getFullName,
                 "newMailBoxLength" => 30,
@@ -71,7 +71,7 @@ class AdminController extends Controller
 
         return response()
             ->view('components.dashboard.project', [
-                "title" => "Staff Project",
+                "title" => "Administrator Project",
                 "contentHeader" => "Project",
                 "fullName" => $getFullName,
                 "newMailBoxLength" => 30,
@@ -93,7 +93,7 @@ class AdminController extends Controller
 
         return response()
             ->view('components.dashboard.project-add', [
-                "title" => "Staff Add New Project",
+                "title" => "Administrator Add New Project",
                 "contentHeader" => "Add New Project",
                 "fullName" => $getFullName,
                 "newMailBoxLength" => 30,
